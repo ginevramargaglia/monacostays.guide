@@ -1,0 +1,963 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>The Monaco Stays Edit</title>
+
+<style>
+:root {
+    --ink: #252321;
+    --muted: #716b64;
+    --cream: #f7f4ee;
+    --paper: #fcfaf6;
+    --line: #ded8ce;
+    --gold: #b39a68;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    background: var(--paper);
+    color: var(--ink);
+    font-family: Garamond, "EB Garamond", Georgia, serif;
+    line-height: 1.6;
+}
+
+a {
+    color: inherit;
+}
+
+/* NAV */
+
+.nav {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: rgba(252,250,246,.94);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--line);
+    padding: 16px 5vw;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav-logo {
+    font-size: 18px;
+    letter-spacing: .08em;
+    text-transform: uppercase;
+}
+
+.nav-links {
+    display: flex;
+    gap: 24px;
+    font-family: Arial, sans-serif;
+    font-size: 11px;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+}
+
+.nav-links a {
+    text-decoration: none;
+}
+
+/* HERO */
+
+.hero {
+    min-height: 92vh;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+
+    background-image:
+        url("https://commons.wikimedia.org/wiki/Special:FilePath/Monaco_-_Vue_vers_la_plage_du_Larvotto_01.jpg");
+
+    background-size: cover;
+    background-position: center;
+}
+
+.hero::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        rgba(20,20,18,.12),
+        rgba(20,20,18,.55)
+    );
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+    color: white;
+    text-align: center;
+    padding: 40px 25px;
+    max-width: 900px;
+}
+
+.hero-kicker {
+    font-family: Arial, sans-serif;
+    font-size: 11px;
+    letter-spacing: .25em;
+    text-transform: uppercase;
+    margin-bottom: 25px;
+}
+
+.hero h1 {
+    font-size: clamp(56px, 10vw, 125px);
+    font-weight: 400;
+    line-height: .88;
+    margin: 0;
+}
+
+.hero-subtitle {
+    margin: 30px auto 0;
+    max-width: 560px;
+    font-size: 21px;
+    font-style: italic;
+}
+
+.scroll-note {
+    margin-top: 55px;
+    font-family: Arial, sans-serif;
+    font-size: 10px;
+    letter-spacing: .18em;
+    text-transform: uppercase;
+}
+
+/* INTRO */
+
+.intro {
+    padding: 110px 8vw 80px;
+    max-width: 900px;
+    margin: auto;
+    text-align: center;
+}
+
+.intro-label,
+.section-heading span {
+    font-family: Arial, sans-serif;
+    font-size: 10px;
+    letter-spacing: .22em;
+    text-transform: uppercase;
+    color: var(--gold);
+}
+
+.intro h2 {
+    font-size: clamp(36px, 5vw, 62px);
+    font-weight: 400;
+    line-height: 1;
+    margin: 20px 0;
+}
+
+.intro p {
+    color: var(--muted);
+    font-size: 19px;
+}
+
+/* SECTION */
+
+.section-heading {
+    padding: 90px 8vw 35px;
+    max-width: 1100px;
+    margin: auto;
+}
+
+.section-heading h2 {
+    margin: 12px 0 0;
+    font-size: clamp(38px, 5vw, 65px);
+    font-weight: 400;
+}
+
+/* VENUES */
+
+.venues {
+    padding: 20px 5vw 80px;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+}
+
+.venue {
+    position: relative;
+    min-height: 570px;
+    overflow: hidden;
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: flex-end;
+}
+
+.venue::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(247,244,238,.70);
+    z-index: 1;
+    transition: background .35s ease;
+}
+
+.venue::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        to top,
+        rgba(247,244,238,.95) 0%,
+        rgba(247,244,238,.55) 48%,
+        rgba(247,244,238,.18) 100%
+    );
+    z-index: 1;
+}
+
+.venue:hover::before {
+    background: rgba(247,244,238,.57);
+}
+
+.venue-content {
+    position: relative;
+    z-index: 2;
+    padding: 55px;
+    max-width: 680px;
+}
+
+.venue-category {
+    display: block;
+    font-family: Arial, sans-serif;
+    font-size: 10px;
+    letter-spacing: .2em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 15px;
+}
+
+.venue h3 {
+    margin: 0 0 14px;
+    font-size: clamp(34px, 4vw, 53px);
+    font-weight: 400;
+    line-height: 1;
+}
+
+.venue p {
+    max-width: 510px;
+    font-size: 17px;
+    color: #4f4a44;
+    margin-bottom: 25px;
+}
+
+.map-link {
+    display: inline-block;
+    font-family: Arial, sans-serif;
+    font-size: 10px;
+    letter-spacing: .16em;
+    text-transform: uppercase;
+    text-decoration: none;
+    border-bottom: 1px solid var(--ink);
+    padding-bottom: 5px;
+}
+
+/* PHOTOS */
+
+.jardins {
+    background-image:
+        url("https://commons.wikimedia.org/wiki/Special:FilePath/Monaco%20Jardins%20de%20Saint-Martin%201.jpg");
+}
+
+.larvotto {
+    background-image:
+        url("https://commons.wikimedia.org/wiki/Special:FilePath/Monaco%20-%20Spiaggia%20di%20Larvotto.JPG");
+}
+
+.oceanographic {
+    background-image:
+        url("https://commons.wikimedia.org/wiki/Special:FilePath/Oceanographic%20Museum.jpg");
+}
+
+.casino {
+    background-image:
+        url("https://commons.wikimedia.org/wiki/Special:FilePath/Monaco%20Casino%20de%20Monte%20Carlo%20Jardin.jpg");
+}
+
+.fontvieille {
+    background-image:
+        url("https://commons.wikimedia.org/wiki/Special:FilePath/Monaco-Port-de-Fontvieille.jpg");
+}
+
+.port-hercule {
+    background-image:
+        url("https://commons.wikimedia.org/wiki/Special:FilePath/Monaco%27s%20Port%20Hercule.jpg");
+}
+
+/* FULL WIDTH */
+
+.featured {
+    margin: 25px 5vw 80px;
+}
+
+.featured .venue {
+    min-height: 650px;
+}
+
+/* QUOTE */
+
+.quote {
+    padding: 120px 8vw;
+    text-align: center;
+    background: var(--cream);
+    border-top: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+}
+
+.quote p {
+    max-width: 800px;
+    margin: auto;
+    font-size: clamp(28px, 4vw, 48px);
+    line-height: 1.1;
+    font-style: italic;
+}
+
+.quote span {
+    display: block;
+    margin-top: 30px;
+    font-family: Arial, sans-serif;
+    font-size: 10px;
+    letter-spacing: .18em;
+    text-transform: uppercase;
+    color: var(--muted);
+}
+
+/* BEYOND */
+
+.beyond {
+    max-width: 1100px;
+    margin: auto;
+    padding: 100px 8vw;
+}
+
+.beyond-grid {
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    gap: 35px;
+    margin-top: 45px;
+}
+
+.beyond-item {
+    border-top: 1px solid var(--line);
+    padding-top: 20px;
+}
+
+.beyond-item h3 {
+    font-size: 27px;
+    font-weight: 400;
+    margin: 0 0 8px;
+}
+
+.beyond-item p {
+    color: var(--muted);
+    font-size: 16px;
+}
+
+/* CONCIERGE */
+
+.concierge {
+    background: var(--ink);
+    color: white;
+    padding: 110px 8vw;
+    text-align: center;
+}
+
+.concierge small {
+    font-family: Arial, sans-serif;
+    font-size: 10px;
+    letter-spacing: .22em;
+    text-transform: uppercase;
+}
+
+.concierge h2 {
+    font-size: clamp(42px, 6vw, 72px);
+    font-weight: 400;
+    margin: 18px 0;
+}
+
+.concierge p {
+    color: rgba(255,255,255,.72);
+    max-width: 500px;
+    margin: 0 auto 30px;
+}
+
+.concierge a {
+    color: white;
+    text-decoration: none;
+    font-family: Arial, sans-serif;
+    font-size: 12px;
+    letter-spacing: .15em;
+    text-transform: uppercase;
+    border-bottom: 1px solid rgba(255,255,255,.5);
+    padding-bottom: 7px;
+}
+
+/* CREDITS */
+
+.credits {
+    padding: 35px 8vw;
+    background: var(--paper);
+    border-top: 1px solid var(--line);
+    text-align: center;
+    color: var(--muted);
+}
+
+.credits-title {
+    font-family: Arial, sans-serif;
+    font-size: 9px;
+    letter-spacing: .18em;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+}
+
+.credits p {
+    max-width: 750px;
+    margin: auto;
+    font-family: Arial, sans-serif;
+    font-size: 9px;
+    line-height: 1.6;
+}
+
+/* FOOTER */
+
+footer {
+    padding: 30px 5vw;
+    background: #1c1b19;
+    color: rgba(255,255,255,.5);
+    text-align: center;
+    font-family: Arial, sans-serif;
+    font-size: 9px;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+}
+
+/* MOBILE */
+
+@media (max-width: 760px) {
+
+    .nav {
+        padding: 13px 20px;
+    }
+
+    .nav-links {
+        display: none;
+    }
+
+    .hero {
+        min-height: 85vh;
+    }
+
+    .hero h1 {
+        font-size: 65px;
+    }
+
+    .hero-subtitle {
+        font-size: 18px;
+    }
+
+    .intro {
+        padding: 80px 25px 60px;
+    }
+
+    .section-heading {
+        padding: 70px 25px 25px;
+    }
+
+    .venues {
+        grid-template-columns: 1fr;
+        padding: 15px 18px 60px;
+        gap: 18px;
+    }
+
+    .venue {
+        min-height: 520px;
+    }
+
+    .venue-content {
+        padding: 35px 28px;
+    }
+
+    .venue h3 {
+        font-size: 38px;
+    }
+
+    .featured {
+        margin: 15px 18px 60px;
+    }
+
+    .featured .venue {
+        min-height: 540px;
+    }
+
+    .beyond {
+        padding: 70px 25px;
+    }
+
+    .beyond-grid {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+
+    .quote {
+        padding: 80px 25px;
+    }
+
+    .concierge {
+        padding: 80px 25px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<nav class="nav">
+    <div class="nav-logo">Monaco Stays</div>
+
+    <div class="nav-links">
+        <a href="#quiet">Quiet</a>
+        <a href="#sea">Sea</a>
+        <a href="#culture">Culture</a>
+        <a href="#beyond">Beyond</a>
+    </div>
+</nav>
+
+
+<header class="hero">
+
+    <div class="hero-content">
+
+        <div class="hero-kicker">
+            The Monaco Stays Edit
+        </div>
+
+        <h1>
+            Favourite<br>
+            Places
+        </h1>
+
+        <p class="hero-subtitle">
+            A personal little guide to Monaco —
+            for slow mornings, sea air, beautiful tables
+            and the places we return to.
+        </p>
+
+        <div class="scroll-note">
+            Scroll to explore
+        </div>
+
+    </div>
+
+</header>
+
+
+<section class="intro">
+
+    <div class="intro-label">
+        Curated by Monaco Stays
+    </div>
+
+    <h2>
+        Monaco, our way.
+    </h2>
+
+    <p>
+        Beyond the famous addresses, these are the corners
+        we love for their atmosphere, beauty and sense of place.
+        Keep this guide close and explore at your own pace.
+    </p>
+
+</section>
+
+
+<section id="quiet">
+
+    <div class="section-heading">
+        <span>01 — Quiet & Beautiful</span>
+        <h2>For wandering.</h2>
+    </div>
+
+    <div class="venues">
+
+        <article class="venue jardins">
+
+            <div class="venue-content">
+
+                <span class="venue-category">
+                    Quiet & Beautiful
+                </span>
+
+                <h3>
+                    Jardins Saint-Martin
+                </h3>
+
+                <p>
+                    One of our favourite places for a slow walk.
+                    Winding paths, Mediterranean greenery and
+                    glimpses of the sea make this one of Monaco's
+                    loveliest quiet corners.
+                </p>
+
+                <a
+                    class="map-link"
+                    href="https://www.google.com/maps/search/?api=1&query=Jardins+Saint-Martin+Monaco"
+                    target="_blank"
+                    rel="noopener">
+                    View on Map →
+                </a>
+
+            </div>
+
+        </article>
+
+
+        <article class="venue oceanographic">
+
+            <div class="venue-content">
+
+                <span class="venue-category">
+                    Culture & Character
+                </span>
+
+                <h3>
+                    Oceanographic Museum
+                </h3>
+
+                <p>
+                    Come for the architecture as much as the
+                    collection. Perched dramatically above the
+                    Mediterranean, it is one of Monaco's most
+                    memorable buildings.
+                </p>
+
+                <a
+                    class="map-link"
+                    href="https://www.google.com/maps/search/?api=1&query=Oceanographic+Museum+Monaco"
+                    target="_blank"
+                    rel="noopener">
+                    View on Map →
+                </a>
+
+            </div>
+
+        </article>
+
+    </div>
+
+</section>
+
+
+<section id="sea">
+
+    <div class="section-heading">
+
+        <span>02 — By the Sea</span>
+
+        <h2>For sea air.</h2>
+
+    </div>
+
+    <div class="featured">
+
+        <article class="venue larvotto">
+
+            <div class="venue-content">
+
+                <span class="venue-category">
+                    By the Sea
+                </span>
+
+                <h3>
+                    Larvotto
+                </h3>
+
+                <p>
+                    For a morning swim, a seaside walk or simply
+                    sitting by the water with nowhere else to be.
+                    The promenade is especially beautiful early
+                    in the day.
+                </p>
+
+                <a
+                    class="map-link"
+                    href="https://www.google.com/maps/search/?api=1&query=Larvotto+Beach+Monaco"
+                    target="_blank"
+                    rel="noopener">
+                    View on Map →
+                </a>
+
+            </div>
+
+        </article>
+
+    </div>
+
+
+    <div class="venues">
+
+        <article class="venue port-hercule">
+
+            <div class="venue-content">
+
+                <span class="venue-category">
+                    Harbour Life
+                </span>
+
+                <h3>
+                    Port Hercule
+                </h3>
+
+                <p>
+                    Wander along the harbour and take in the
+                    yachts, architecture and ever-changing
+                    Mediterranean light.
+                </p>
+
+                <a
+                    class="map-link"
+                    href="https://www.google.com/maps/search/?api=1&query=Port+Hercule+Monaco"
+                    target="_blank"
+                    rel="noopener">
+                    View on Map →
+                </a>
+
+            </div>
+
+        </article>
+
+
+        <article class="venue fontvieille">
+
+            <div class="venue-content">
+
+                <span class="venue-category">
+                    Harbour Life
+                </span>
+
+                <h3>
+                    Port de Fontvieille
+                </h3>
+
+                <p>
+                    A quieter side of the Principality, with
+                    boats, waterfront paths and beautiful views
+                    towards the Rocher.
+                </p>
+
+                <a
+                    class="map-link"
+                    href="https://www.google.com/maps/search/?api=1&query=Port+de+Fontvieille+Monaco"
+                    target="_blank"
+                    rel="noopener">
+                    View on Map →
+                </a>
+
+            </div>
+
+        </article>
+
+    </div>
+
+</section>
+
+
+<section class="quote">
+
+    <p>
+        “The best way to experience Monaco
+        is to leave a little room for wandering.”
+    </p>
+
+    <span>
+        The Monaco Stays Edit
+    </span>
+
+</section>
+
+
+<section>
+
+    <div class="section-heading">
+
+        <span>03 — Views & Atmosphere</span>
+
+        <h2>
+            For the golden hour.
+        </h2>
+
+    </div>
+
+    <div class="featured">
+
+        <article class="venue casino">
+
+            <div class="venue-content">
+
+                <span class="venue-category">
+                    Monte-Carlo
+                </span>
+
+                <h3>
+                    Place du Casino
+                </h3>
+
+                <p>
+                    Monaco at its most iconic. Come in the late
+                    afternoon, when the square begins to glow
+                    and the atmosphere shifts towards evening.
+                </p>
+
+                <a
+                    class="map-link"
+                    href="https://www.google.com/maps/search/?api=1&query=Casino+de+Monte-Carlo"
+                    target="_blank"
+                    rel="noopener">
+                    View on Map →
+                </a>
+
+            </div>
+
+        </article>
+
+    </div>
+
+</section>
+
+
+<section id="beyond" class="beyond">
+
+    <div class="section-heading" style="padding:0;">
+
+        <span>04 — Beyond Monaco</span>
+
+        <h2>
+            Just a little further.
+        </h2>
+
+    </div>
+
+
+    <div class="beyond-grid">
+
+        <div class="beyond-item">
+
+            <h3>Èze</h3>
+
+            <p>
+                Medieval lanes, extraordinary views and one of
+                the most beautiful hilltop settings on the Riviera.
+            </p>
+
+            <a
+                class="map-link"
+                href="https://www.google.com/maps/search/?api=1&query=Eze+France"
+                target="_blank"
+                rel="noopener">
+                Explore →
+            </a>
+
+        </div>
+
+
+        <div class="beyond-item">
+
+            <h3>Menton</h3>
+
+            <p>
+                Colourful façades, gardens, citrus trees and a
+                slower Mediterranean rhythm.
+            </p>
+
+            <a
+                class="map-link"
+                href="https://www.google.com/maps/search/?api=1&query=Menton+France"
+                target="_blank"
+                rel="noopener">
+                Explore →
+            </a>
+
+        </div>
+
+
+        <div class="beyond-item">
+
+            <h3>Cap d'Ail</h3>
+
+            <p>
+                A beautiful coastal escape just outside Monaco,
+                especially lovely for a seaside walk.
+            </p>
+
+            <a
+                class="map-link"
+                href="https://www.google.com/maps/search/?api=1&query=Cap+d%27Ail+France"
+                target="_blank"
+                rel="noopener">
+                Explore →
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<section class="concierge">
+
+    <small>
+        Monaco Stays Concierge
+    </small>
+
+    <h2>
+        Need a little help?
+    </h2>
+
+    <p>
+        From restaurant reservations and private drivers
+        to experiences and last-minute requests,
+        our concierge team is here to help.
+    </p>
+
+    <a href="tel:+33618706727">
+        +33 6 18 70 67 27
+    </a>
+
+</section>
+
+
+<section class="credits">
+
+    <div class="credits-title">
+        Image credits
+    </div>
+
+    <p>
+        Photography via Wikimedia Commons and used under
+        the respective licences of the individual contributors.
+    </p>
+
+</section>
+
+
+<footer>
+    Monaco Stays · The Monaco Stays Edit
+</footer>
+
+</body>
+</html>
