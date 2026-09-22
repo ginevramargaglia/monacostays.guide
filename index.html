@@ -16,7 +16,6 @@
   --paper: #fcfaf6;
   --line: #ded8ce;
   --gold: #b39a68;
-  --rust: #af5a3a;
 }
 
 * {
@@ -35,7 +34,7 @@ body {
   font-weight: 300;
 }
 
-h1, h2, h3, h4, .serif {
+h1,h2,h3,h4,.serif {
   font-family: "EB Garamond", Garamond, Georgia, serif;
   font-weight: 400;
 }
@@ -43,11 +42,6 @@ h1, h2, h3, h4, .serif {
 a {
   color: inherit;
   text-decoration: none;
-}
-
-img {
-  max-width: 100%;
-  display: block;
 }
 
 /* NAV */
@@ -74,7 +68,7 @@ img {
 
 .nav-links {
   display: flex;
-  gap: 28px;
+  gap: 25px;
   font-size: 10px;
   letter-spacing: .18em;
   text-transform: uppercase;
@@ -95,11 +89,12 @@ img {
   align-items: flex-end;
   padding: 7vw;
   color: white;
+
   background:
     linear-gradient(
       to bottom,
       rgba(0,0,0,.05),
-      rgba(0,0,0,.62)
+      rgba(0,0,0,.65)
     ),
     url("https://commons.wikimedia.org/wiki/Special:FilePath/Monaco%2002.jpg")
     center/cover no-repeat;
@@ -117,7 +112,7 @@ img {
 }
 
 .hero h1 {
-  font-size: clamp(64px, 10vw, 150px);
+  font-size: clamp(64px,10vw,150px);
   line-height: .82;
   margin: 0;
   letter-spacing: -.045em;
@@ -134,7 +129,6 @@ img {
   max-width: 480px;
   font-size: 14px;
   line-height: 1.8;
-  opacity: .9;
 }
 
 .scroll {
@@ -161,7 +155,7 @@ img {
 }
 
 .intro h2 {
-  font-size: clamp(42px, 6vw, 80px);
+  font-size: clamp(42px,6vw,80px);
   line-height: .95;
   margin: 20px 0 35px;
 }
@@ -173,7 +167,7 @@ img {
   color: var(--muted);
 }
 
-/* SECTION */
+/* SECTIONS */
 
 .section {
   padding: 30px 5vw 100px;
@@ -203,12 +197,12 @@ img {
 
 .grid {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(2,1fr);
   gap: 22px;
 }
 
 .grid.three {
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(3,1fr);
 }
 
 .place {
@@ -237,11 +231,12 @@ img {
 .place-overlay {
   position: absolute;
   inset: 0;
+
   background:
     linear-gradient(
       to top,
-      rgba(247,244,238,.97) 0%,
-      rgba(247,244,238,.76) 34%,
+      rgba(247,244,238,.98) 0%,
+      rgba(247,244,238,.75) 34%,
       rgba(247,244,238,.08) 75%
     );
 }
@@ -282,6 +277,7 @@ img {
   min-height: 620px;
   position: relative;
   overflow: hidden;
+
   background:
     linear-gradient(
       to right,
@@ -290,6 +286,7 @@ img {
     ),
     url("https://commons.wikimedia.org/wiki/Special:FilePath/Tete%20de%20chien%20vue%20de%20Monaco.JPG")
     center/cover;
+
   color: white;
   display: flex;
   align-items: flex-end;
@@ -301,7 +298,7 @@ img {
 }
 
 .feature h2 {
-  font-size: clamp(48px, 7vw, 90px);
+  font-size: clamp(48px,7vw,90px);
   line-height: .9;
   margin: 10px 0 20px;
 }
@@ -312,7 +309,7 @@ img {
   max-width: 480px;
 }
 
-/* LOCAL NOTES */
+/* NOTES */
 
 .note {
   border-top: 1px solid var(--line);
@@ -337,11 +334,11 @@ img {
   margin: 0;
 }
 
-/* OUTSIDE MONACO */
+/* DAY TRIPS */
 
 .daytrip {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(3,1fr);
   gap: 1px;
   background: var(--line);
 }
@@ -380,7 +377,7 @@ img {
 
 .quote p {
   font-family: "EB Garamond", Garamond, Georgia, serif;
-  font-size: clamp(35px, 5vw, 68px);
+  font-size: clamp(35px,5vw,68px);
   line-height: 1;
   max-width: 1000px;
   margin: auto;
@@ -389,7 +386,6 @@ img {
 .quote span {
   display: block;
   margin-top: 25px;
-  font-family: "Montserrat", Arial, sans-serif;
   font-size: 9px;
   letter-spacing: .2em;
   text-transform: uppercase;
@@ -408,7 +404,7 @@ img {
 }
 
 .concierge h2 {
-  font-size: clamp(50px, 7vw, 90px);
+  font-size: clamp(50px,7vw,90px);
   line-height: .9;
   margin: 0;
 }
@@ -446,81 +442,78 @@ footer {
 
 /* MOBILE */
 
-@media (max-width: 800px) {
+@media(max-width:800px){
 
   .nav {
-    padding: 20px;
+    padding:20px;
   }
 
   .nav-links {
-    display: none;
+    display:none;
   }
 
   .hero {
-    min-height: 620px;
-    padding: 30px;
+    min-height:620px;
+    padding:30px;
   }
 
   .hero h1 {
-    font-size: 65px;
+    font-size:65px;
   }
 
   .hero h1 span {
-    margin-left: 15vw;
+    margin-left:15vw;
   }
 
   .intro {
-    padding: 90px 30px 70px;
+    padding:90px 30px 70px;
   }
 
   .section {
-    padding: 20px 20px 70px;
+    padding:20px 20px 70px;
   }
 
   .section-title {
-    font-size: 36px;
+    font-size:36px;
   }
 
   .grid,
   .grid.three,
   .daytrip {
-    grid-template-columns: 1fr;
+    grid-template-columns:1fr;
   }
 
   .place,
   .place.large {
-    min-height: 430px;
+    min-height:430px;
   }
 
   .feature {
-    margin: 10px 20px 70px;
-    min-height: 500px;
-    padding: 35px;
+    margin:10px 20px 70px;
+    min-height:500px;
+    padding:35px;
   }
 
   .note {
-    grid-template-columns: 1fr;
-    gap: 20px;
+    grid-template-columns:1fr;
+    gap:20px;
   }
 
   .concierge {
-    grid-template-columns: 1fr;
-    padding: 90px 30px;
-    gap: 40px;
+    grid-template-columns:1fr;
+    padding:90px 30px;
+    gap:40px;
   }
 
   footer {
-    flex-direction: column;
-    gap: 12px;
+    flex-direction:column;
+    gap:12px;
   }
 }
 </style>
 </head>
 
-
 <body>
-
-<!-- NAV -->
 
 <nav class="nav">
   <div class="logo">Monaco Stays</div>
@@ -528,8 +521,9 @@ footer {
   <div class="nav-links">
     <a href="#gardens">Gardens</a>
     <a href="#sea">Sea</a>
-    <a href="#monaco-ville">The Rock</a>
+    <a href="#rock">The Rock</a>
     <a href="#culture">Culture</a>
+    <a href="#discoveries">Discoveries</a>
     <a href="#beyond">Beyond</a>
   </div>
 </nav>
@@ -578,218 +572,239 @@ footer {
   <p>
     Monaco is small enough to cross in an afternoon, but there is
     considerably more to discover than the Casino and the harbour.
-    We have gathered the gardens, viewpoints, little streets,
-    hidden corners and beautiful places we return to ourselves.
+    We have gathered gardens, viewpoints, old streets, quiet corners,
+    architecture and beautiful places worth making time for.
   </p>
 
 </section>
 
 
+<!-- ===================================================== -->
 <!-- 01 GARDENS -->
+<!-- ===================================================== -->
 
 <section class="section" id="gardens">
 
-  <div class="section-header">
-    <h2 class="section-title">Gardens & Green Spaces</h2>
-    <div class="section-number">01</div>
-  </div>
+<div class="section-header">
+  <h2 class="section-title">Gardens & Green Spaces</h2>
+  <div class="section-number">01</div>
+</div>
 
-  <div class="grid">
+<div class="grid">
 
-    <article class="place large">
-      <div class="place-image"
-        style="background-image:url('https://commons.wikimedia.org/wiki/Special:FilePath/Benches%20at%20the%20Saint%20Martin%20Gardens%20in%20Monaco.jpg');">
-      </div>
-      <div class="place-overlay"></div>
-      <div class="place-content">
-        <div class="place-number">01 · Garden</div>
-        <h3>Jardins Saint-Martin</h3>
-        <p>
-          Monaco's first public garden, winding along the cliffs
-          above the Mediterranean. Beautifully quiet in the morning.
-        </p>
-      </div>
-    </article>
+<article class="place large">
+<div class="place-image"
+style="background-image:url('https://commons.wikimedia.org/wiki/Special:FilePath/Benches%20at%20the%20Saint%20Martin%20Gardens%20in%20Monaco.jpg');"></div>
+<div class="place-overlay"></div>
+<div class="place-content">
+<div class="place-number">01 · Garden</div>
+<h3>Jardins Saint-Martin</h3>
+<p>Monaco's first public garden, winding along the cliffs above the Mediterranean. Beautifully quiet in the morning.</p>
+</div>
+</article>
 
+<article class="place large">
+<div class="place-image"
+style="background-image:url('https://commons.wikimedia.org/wiki/Special:FilePath/Japanese%20garden%20Monaco%20%28pond%20and%20bridge%29.jpg');"></div>
+<div class="place-overlay"></div>
+<div class="place-content">
+<div class="place-number">02 · Garden</div>
+<h3>Japanese Garden</h3>
+<p>A surprisingly peaceful pocket beside the sea, designed around water, stone, bridges and carefully composed greenery.</p>
+</div>
+</article>
 
-    <article class="place large">
-      <div class="place-image"
-        style="background-image:url('https://commons.wikimedia.org/wiki/Special:FilePath/Japanese%20garden%20Monaco%20%28pond%20and%20bridge%29.jpg');">
-      </div>
-      <div class="place-overlay"></div>
-      <div class="place-content">
-        <div class="place-number">02 · Garden</div>
-        <h3>Japanese Garden</h3>
-        <p>
-          A surprisingly peaceful pocket beside the sea,
-          designed around water, stone, bridges and carefully
-          composed greenery.
-        </p>
-      </div>
-    </article>
+</div>
 
-  </div>
+<div class="grid three" style="margin-top:22px;">
 
+<article class="place">
+<div class="place-image"
+style="background-image:url('https://commons.wikimedia.org/wiki/Special:FilePath/Le%20jardin%20exotique%20de%20Monaco%20%2847571290922%29.jpg');"></div>
+<div class="place-overlay"></div>
+<div class="place-content">
+<div class="place-number">03</div>
+<h3>Jardin Exotique</h3>
+<p>A dramatic cliffside botanical garden filled with succulents and panoramic views.</p>
+</div>
+</article>
 
-  <div class="grid three" style="margin-top:22px;">
+<article class="place">
+<div class="place-image"
+style="background-image:url('https://commons.wikimedia.org/wiki/Special:FilePath/Roseraie%20Princesse%20Grace%20-%20panoramio%20%283%29.jpg');"></div>
+<div class="place-overlay"></div>
+<div class="place-content">
+<div class="place-number">04</div>
+<h3>Princess Grace Rose Garden</h3>
+<p>A peaceful Fontvieille garden dedicated to Princess Grace, with thousands of roses.</p>
+</div>
+</article>
 
-    <article class="place">
-      <div class="place-image"
-        style="background-image:url('https://commons.wikimedia.org/wiki/Special:FilePath/Le%20jardin%20exotique%20de%20Monaco%20%2847571290922%29.jpg');">
-      </div>
-      <div class="place-overlay"></div>
-      <div class="place-content">
-        <div class="place-number">03</div>
-        <h3>Jardin Exotique</h3>
-        <p>
-          Dramatic succulents and panoramic views from Monaco's upper slopes.
-        </p>
-      </div>
-    </article>
+<article class="place">
+<div class="place-image"
+style="background-image:url('https://commons.wikimedia.org/wiki/Special:FilePath/Parc%20Princesse%20Antoinette%20Monaco.jpg');"></div>
+<div class="place-overlay"></div>
+<div class="place-content">
+<div class="place-number">05</div>
+<h3>Parc Princesse Antoinette</h3>
+<p>A greener, quieter side of Monaco above the main tourist routes.</p>
+</div>
+</article>
 
+<article class="place">
+<div class="place-image"
+style="background-image:url('https://commons.wikimedia.org/wiki/Special:FilePath/Fontvieille%20Park%20Monaco.jpg');"></div>
+<div class="place-overlay"></div>
+<div class="place-content">
+<div class="place-number">06</div>
+<h3>Fontvieille Park</h3>
+<p>Open green space, palms, sculptures and a slower atmosphere beside the harbour.</p>
+</div>
+</article>
 
-    <article class="place">
-      <div class="place-image"
-        style="background-image:url('https://commons.wikimedia.org/wiki/Special:FilePath/Roseraie%20Princesse%20Grace%20-%20panoramio%20%283%29.jpg');">
-      </div>
-      <div class="place-overlay"></div>
-      <div class="place-content">
-        <div class="place-number">04</div>
-        <h3>Princess Grace Rose Garden</h3>
-        <p>
-          Nearly 10,000 roses in a peaceful corner of Fontvieille.
-        </p>
-      </div>
-    </article>
+<article class="place">
+<div class="place-image"
+style="background-image:url('https://commons.wikimedia.org/wiki/Special:FilePath/Jardins%20de%20la%20Petite%20Afrique%20Monaco.jpg');"></div>
+<div class="place-overlay"></div>
+<div class="place-content">
+<div class="place-number">07</div>
+<h3>La Petite Afrique</h3>
+<p>A lush garden near the Casino, unexpectedly secluded despite its central location.</p>
+</div>
+</article>
 
+<article class="place">
+<div class="place-image"
+style="background-image:url('https://commons.wikimedia.org/wiki/Special:FilePath/Square%20Gastaud%20Monaco.jpg');"></div>
+<div class="place-overlay"></div>
+<div class="place-content">
+<div class="place-number">08</div>
+<h3>Square Gastaud</h3>
+<p>A small landscaped pause in the city — perfect when you want somewhere quiet without leaving Monte-Carlo.</p>
+</div>
+</article>
 
-    <article class="place">
-      <div class="place-image"
-        style="background-image:url('https://commons.wikimedia.org/wiki/Special:FilePath/KNE%C5%BDEVINA%20MONAKO%2015.12.2025.jpg');">
-      </div>
-      <div class="place-overlay"></div>
-      <div class="place-content">
-        <div class="place-number">05</div>
-        <h3>Parc Princesse Antoinette</h3>
-        <p>
-          A quieter, greener side of Monaco that most visitors never reach.
-        </p>
-      </div>
-    </article>
+</div>
 
-  </div>
+<div class="note">
+<div class="note-label">Our little tip</div>
+<p>The Japanese Garden is one of those places that feels completely removed from Monaco's pace. Give it ten quiet minutes.</p>
+</div>
 
 </section>
 
 
+<!-- ===================================================== -->
 <!-- 02 SEA -->
+<!-- ===================================================== -->
 
 <section class="section" id="sea">
 
-  <div class="section-header">
-    <h2 class="section-title">By the Sea</h2>
-    <div class="section-number">02</div>
-  </div>
+<div class="section-header">
+<h2 class="section-title">By the Sea</h2>
+<div class="section-number">02</div>
+</div>
 
+<div class="grid">
 
-  <div class="grid">
+<article class="place large">
+<div class="place-image"
+style="background-image:url('https://commons.wikimedia.org/wiki/Special:FilePath/Larvotto%20Monaco%20IMG%201138.jpg');"></div>
+<div class="place-overlay"></div>
+<div class="place-content">
+<div class="place-number">09 · Beach</div>
+<h3>Larvotto</h3>
+<p>Monaco's public beach and waterfront promenade. Go early for a completely different atmosphere.</p>
+</div>
+</article>
 
-    <article class="place large">
-      <div class="place-image"
-        style="background-image:url('https://commons.wikimedia.org/wiki/Special:FilePath/Larvotto%20Monaco%20IMG%201138.jpg');">
-      </div>
-      <div class="place-overlay"></div>
-      <div class="place-content">
-        <div class="place-number">06 · Beach</div>
-        <h3>Larvotto</h3>
-        <p>
-          Monaco's public beach and waterfront promenade.
-          Go early for a completely different atmosphere.
-        </p>
-      </div>
-    </article>
+<article class="place large">
+<div class="place-image"
+style="background-image:url('https://commons.wikimedia.org/wiki/Special:FilePath/Plage%20des%20P%C3%AAcheurs%20Monaco.jpg');"></div>
+<div class="place-overlay"></div>
+<div class="place-content">
+<div class="place-number">10 · Hidden corner</div>
+<h3>Plage des Pêcheurs</h3>
+<p>A tiny rocky waterfront beneath the old town — one of the places that feels surprisingly far from the city.</p>
+</div>
+</article>
 
+</div>
 
-    <article class="place large">
-      <div class="place-image"
-        style="background-image:url('https://commons.wikimedia.org/wiki/Special:FilePath/Monaco%20-%20panoramio%20%28127%29.jpg');">
-      </div>
-      <div class="place-overlay"></div>
-      <div class="place-content">
-        <div class="place-number">07 · Hidden corner</div>
-        <h3>Plage des Pêcheurs</h3>
-        <p>
-          A tiny rocky waterfront tucked beneath the old town.
-          One of the places that feels surprisingly far from the city.
-        </p>
-      </div>
-    </article>
+<div class="grid three" style="margin-top:22px;">
 
-  </div>
+<article class="place">
+<div class="place-image"
+style="background-image:url('https://commons.wikimedia.org/wiki/Special:FilePath/Monaco%27s%20Port%20Hercule.jpg');"></div>
+<div class="place-overlay"></div>
+<div class="place-content">
+<div class="place-number">11</div>
+<h3>Port Hercule</h3>
+<p>Walk the harbour rather than simply looking at it from above.</p>
+</div>
+</article>
 
+<article class="place">
+<div class="place-image"
+style="background-image:url('https://commons.wikimedia.org/wiki/Special:FilePath/Port%20de%20Fontvieille%20of%20Monaco.JPG');"></div>
+<div class="place-overlay"></div>
+<div class="place-content">
+<div class="place-number">12</div>
+<h3>Port de Fontvieille</h3>
+<p>A calmer harbour to wander around at golden hour.</p>
+</div>
+</article>
 
-  <div class="grid three" style="margin-top:22px;">
+<article class="place">
+<div class="place-image"
+style="background-image:url('https://commons.wikimedia.org/wiki/Special:FilePath/Monaco%20Solarium%20Rainier%20III.jpg');"></div>
+<div class="place-overlay"></div>
+<div class="place-content">
+<div class="place-number">13</div>
+<h3>Solarium Rainier III</h3>
+<p>A distinctive concrete promenade at the foot of the Rock, surrounded by open sea.</p>
+</div>
+</article>
 
-    <article class="place">
-      <div class="place-image"
-        style="background-image:url('https://commons.wikimedia.org/wiki/Special:FilePath/Monaco%27s%20Port%20Hercule.jpg');">
-      </div>
-      <div class="place-overlay"></div>
-      <div class="place-content">
-        <div class="place-number">08</div>
-        <h3>Port Hercule</h3>
-        <p>
-          Walk the harbour rather than simply looking at it from above.
-        </p>
-      </div>
-    </article>
+<article class="place">
+<div class="place-image"
+style="background-image:url('https://commons.wikimedia.org/wiki/Special:FilePath/Monte-Carlo%20Beach%20Monaco.jpg');"></div>
+<div class="place-overlay"></div>
+<div class="place-content">
+<div class="place-number">14</div>
+<h3>Monte-Carlo Beach</h3>
+<p>A classic Riviera setting just beyond Monaco's eastern edge.</p>
+</div>
+</article>
 
+<article class="place">
+<div class="place-image"
+style="background-image:url('https://commons.wikimedia.org/wiki/Special:FilePath/Monaco%20Grimaldi%20Forum%20sea.jpg');"></div>
+<div class="place-overlay"></div>
+<div class="place-content">
+<div class="place-number">15</div>
+<h3>Grimaldi Forum Waterfront</h3>
+<p>Walk the seafront beside the Forum for a more contemporary side of Monaco.</p>
+</div>
+</article>
 
-    <article class="place">
-      <div class="place-image"
-        style="background-image:url('https://commons.wikimedia.org/wiki/Special:FilePath/Port%20de%20Fontvieille%20of%20Monaco.JPG');">
-      </div>
-      <div class="place-overlay"></div>
-      <div class="place-content">
-        <div class="place-number">09</div>
-        <h3>Port de Fontvieille</h3>
-        <p>
-          A calmer harbour to wander around at golden hour.
-        </p>
-      </div>
-    </article>
+<article class="place">
+<div class="place-image"
+style="background-image:url('https://commons.wikimedia.org/wiki/Special:FilePath/Monaco%20waterfront%20Rocher.jpg');"></div>
+<div class="place-overlay"></div>
+<div class="place-content">
+<div class="place-number">16</div>
+<h3>Le Rocher Waterfront</h3>
+<p>Follow the water around the western side of the Rock for dramatic views back towards Monaco.</p>
+</div>
+</article>
 
+</div>
 
-    <article class="place">
-      <div class="place-image"
-        style="background-image:url('https://commons.wikimedia.org/wiki/Special:FilePath/Larvotto%20Monaco%20IMG%201127.jpg');">
-      </div>
-      <div class="place-overlay"></div>
-      <div class="place-content">
-        <div class="place-number">10</div>
-        <h3>Monte-Carlo Beach</h3>
-        <p>
-          A classic Riviera setting just beyond the eastern edge of Monaco.
-        </p>
-      </div>
-    </article>
-
-  </div>
-
-
-  <div class="note">
-
-    <div class="note-label">
-      Our little tip
-    </div>
-
-    <p>
-      Larvotto before 9am is another place entirely.
-      The water is calm, the promenade is quiet and Monaco
-      has not quite started its day yet.
-    </p>
-
-  </div>
+<div class="note">
+<div class="note-label">Our little tip</div>
+<p>Larvotto before 9am is another place entirely. The water is calm, the promenade is quiet and Monaco has not quite started its day.</p>
+</div>
 
 </section>
 
@@ -798,467 +813,492 @@ footer {
 
 <section class="feature">
 
-  <div class="feature-content">
+<div class="feature-content">
 
-    <div class="eyebrow">A different perspective</div>
+<div class="eyebrow">A different perspective</div>
 
-    <h2>
-      Look up.
-      Monaco goes much higher than you think.
-    </h2>
+<h2>
+Look up.
+Monaco goes much higher than you think.
+</h2>
 
-    <p>
-      One of the pleasures of Monaco is discovering how vertical it is.
-      Take the lifts, climb the small passages and follow the streets
-      above the centre for unexpected views across the rooftops and sea.
-    </p>
+<p>
+One of the pleasures of Monaco is discovering how vertical it is.
+Take the lifts, climb the small passages and follow the streets
+above the centre for unexpected views across the rooftops and sea.
+</p>
 
-  </div>
+</div>
 
 </section>
 
 
+<!-- ===================================================== -->
 <!-- 03 THE ROCK -->
+<!-- ===================================================== -->
 
-<section class="section" id="monaco-ville">
+<section class="section" id="rock">
 
-  <div class="section-header">
-    <h2 class="section-title">The Rock & Monaco-Ville</h2>
-    <div class="section-number">03</div>
-  </div>
+<div class="section-header">
+<h2 class="section-title">The Rock & Monaco-Ville</h2>
+<div class="section-number">03</div>
+</div>
 
+<div class="grid">
 
-  <div class="grid">
+<article class="place large">
+<div class="place-image"
+style="background-image:url('https://commons.wikimedia.org/wiki/Special:FilePath/Monaco%2002.jpg');"></div>
+<div class="place-overlay"></div>
+<div class="place-content">
+<div class="place-number">17</div>
+<h3>Monaco-Ville</h3>
+<p>Wander without a route. The old streets of the Rock are at their best when you simply follow whichever staircase looks interesting.</p>
+</div>
+</article>
 
-    <article class="place large">
-      <div class="place-image"
-        style="background-image:url('https://commons.wikimedia.org/wiki/Special:FilePath/Monaco%20-%20panoramio%20%28126%29.jpg');">
-      </div>
-      <div class="place-overlay"></div>
-      <div class="place-content">
-        <div class="place-number">11</div>
-        <h3>Monaco-Ville</h3>
-        <p>
-          Wander without a route. The old streets of the Rock
-          are at their best when you simply follow whichever
-          staircase looks interesting.
-        </p>
-      </div>
-    </article>
+<article class="place large">
+<div class="place-image"
+style="background-image:url('https://commons.wikimedia.org/wiki/Special:FilePath/Princely%20Palace%20of%20Monaco%2002.jpg');"></div>
+<div class="place-overlay"></div>
+<div class="place-content">
+<div class="place-number">18</div>
+<h3>Place du Palais</h3>
+<p>The ceremonial heart of Monaco, with views stretching across the rooftops and Mediterranean.</p>
+</div>
+</article>
 
+</div>
 
-    <article class="place large">
-      <div class="place-image"
-        style="background-image:url('https://commons.wikimedia.org/wiki/Special:FilePath/Princely%20Palace%20of%20Monaco%2002.jpg');">
-      </div>
-      <div class="place-overlay"></div>
-      <div class="place-content">
-        <div class="place-number">12</div>
-        <h3>Place du Palais</h3>
-        <p>
-          The ceremonial heart of Monaco, with views stretching
-          across the rooftops and Mediterranean.
-        </p>
-      </div>
-    </article>
+<div class="grid three" style="margin-top:22px;">
 
-  </div>
+<article class="place">
+<div class="place-image"
+style="background-image:url('https://commons.wikimedia.org/wiki/Special:FilePath/Place%20de%20la%20Mairie%20Monaco.jpg');"></div>
+<div class="place-overlay"></div>
+<div class="place-content">
+<div class="place-number">19</div>
+<h3>Place de la Mairie</h3>
+<p>A tiny square that captures the quieter, village-like character of Monaco-Ville.</p>
+</div>
+</article>
 
+<article class="place">
+<div class="place-image"
+style="background-image:url('https://commons.wikimedia.org/wiki/Special:FilePath/Place%20Saint-Nicolas%20Monaco.jpg');"></div>
+<div class="place-overlay"></div>
+<div class="place-content">
+<div class="place-number">20</div>
+<h3>Place Saint-Nicolas</h3>
+<p>A small historic corner to pause before continuing through the old town.</p>
+</div>
+</article>
 
-  <div class="grid three" style="margin-top:22px;">
+<article class="place">
+<div class="place-image"
+style="background-image:url('https://commons.wikimedia.org/wiki/Special:FilePath/Rampe%20Major%20Monaco.jpg');"></div>
+<div class="place-overlay"></div>
+<div class="place-content">
+<div class="place-number">21</div>
+<h3>Rampe Major</h3>
+<p>The historic approach to the Rock — best explored slowly.</p>
+</div>
+</article>
 
-    <article class="place">
-      <div class="place-image"
-        style="background-image:url('https://commons.wikimedia.org/wiki/Special:FilePath/Rue%20des%20Remparts%20-%20panoramio.jpg');">
-      </div>
-      <div class="place-overlay"></div>
-      <div class="place-content">
-        <div class="place-number">13</div>
-        <h3>Rampe Major</h3>
-        <p>
-          The historic approach to the Rock — best explored slowly.
-        </p>
-      </div>
-    </article>
+<article class="place">
+<div class="place-image"
+style="background-image:url('https://commons.wikimedia.org/wiki/Special:FilePath/Rue%20Basse%20Monaco.jpg');"></div>
+<div class="place-overlay"></div>
+<div class="place-content">
+<div class="place-number">22</div>
+<h3>Rue Basse</h3>
+<p>One of the old town's atmospheric little streets, especially beautiful early in the morning.</p>
+</div>
+</article>
 
+<article class="place">
+<div class="place-image"
+style="background-image:url('https://commons.wikimedia.org/wiki/Special:FilePath/Rue%20des%20Remparts%20-%20panoramio.jpg');"></div>
+<div class="place-overlay"></div>
+<div class="place-content">
+<div class="place-number">23</div>
+<h3>Rue des Remparts</h3>
+<p>Follow the edge of the Rock and look for glimpses of the sea between the old buildings.</p>
+</div>
+</article>
 
-    <article class="place">
-      <div class="place-image"
-        style="background-image:url('https://commons.wikimedia.org/wiki/Special:FilePath/Monte%20Carlo%2C%20from%20Fort%20Antoine%2C%20Monaco%20%28Riviera%29-LCCN2002715106.jpg');">
-      </div>
-      <div class="place-overlay"></div>
-      <div class="place-content">
-        <div class="place-number">14</div>
-        <h3>Fort Antoine</h3>
-        <p>
-          An unusual little open-air theatre overlooking the sea.
-          One of Monaco's most atmospheric corners.
-        </p>
-      </div>
-    </article>
+<article class="place">
+<div class="place-image"
+style="background-image:url('https://commons.wikimedia.org/wiki/Special:FilePath/Kathedrale%20monaco.jpg');"></div>
+<div class="place-overlay"></div>
+<div class="place-content">
+<div class="place-number">24</div>
+<h3>Cathédrale de Monaco</h3>
+<p>The Romanesque-Byzantine cathedral at the heart of Monaco-Ville.</p>
+</div>
+</article>
 
+<article class="place">
+<div class="place-image"
+style="background-image:url('https://commons.wikimedia.org/wiki/Special:FilePath/Fort%20Antoine%20Monaco.JPG');"></div>
+<div class="place-overlay"></div>
+<div class="place-content">
+<div class="place-number">25</div>
+<h3>Fort Antoine</h3>
+<p>An unusual open-air theatre overlooking the sea and one of Monaco's most atmospheric corners.</p>
+</div>
+</article>
 
-    <article class="place">
-      <div class="place-image"
-        style="background-image:url('https://commons.wikimedia.org/wiki/Special:FilePath/Kathedrale%20monaco.jpg');">
-      </div>
-      <div class="place-overlay"></div>
-      <div class="place-content">
-        <div class="place-number">15</div>
-        <h3>Cathedral & Gardens</h3>
-        <p>
-          Visit the cathedral, then continue directly into the
-          Saint-Martin gardens above the sea.
-        </p>
-      </div>
-    </article>
+<article class="place">
+<div class="place-image"
+style="background-image:url('https://commons.wikimedia.org/wiki/Special:FilePath/Oceanographic%20Museum%20Monaco.jpg');"></div>
+<div class="place-overlay"></div>
+<div class="place-content">
+<div class="place-number">26</div>
+<h3>Oceanographic Museum Terraces</h3>
+<p>Even if you do not visit the museum, the terraces and views over the Mediterranean are worth the walk.</p>
+</div>
+</article>
 
-  </div>
+<article class="place">
+<div class="place-image"
+style="background-image:url('https://commons.wikimedia.org/wiki/Special:FilePath/Chapelle%20de%20la%20Mis%C3%A9ricorde%20Monaco.jpg');"></div>
+<div class="place-overlay"></div>
+<div class="place-content">
+<div class="place-number">27</div>
+<h3>Chapelle de la Miséricorde</h3>
+<p>A small historic chapel tucked into the old town.</p>
+</div>
+</article>
 
+</div>
 
-  <div class="note">
-
-    <div class="note-label">
-      Our little tip
-    </div>
-
-    <p>
-      Visit Monaco-Ville before the day gets busy.
-      Around 8:30–9:00am, the narrow streets feel almost private.
-    </p>
-
-  </div>
+<div class="note">
+<div class="note-label">Our little tip</div>
+<p>Visit Monaco-Ville before the day gets busy. Around 8:30–9:00am, the narrow streets feel almost private.</p>
+</div>
 
 </section>
 
 
+<!-- ===================================================== -->
 <!-- 04 CULTURE -->
+<!-- ===================================================== -->
 
 <section class="section" id="culture">
 
-  <div class="section-header">
-    <h2 class="section-title">Art, Architecture & Culture</h2>
-    <div class="section-number">04</div>
-  </div>
+<div class="section-header">
+<h2 class="section-title">Art, Architecture & Culture</h2>
+<div class="section-number">04</div>
+</div>
 
+<div class="grid three">
 
-  <div class="grid three">
+<article class="place">
+<div class="place-image"
+style="background-image:url('https://commons.wikimedia.org/wiki/Special:FilePath/Monaco%20Casino%20de%20Monte-Carlo%20%2854478858162%29.jpg');"></div>
+<div class="place-overlay"></div>
+<div class="place-content">
+<div class="place-number">28</div>
+<h3>Casino de Monte-Carlo</h3>
+<p>Belle Époque architecture and one of the most recognisable buildings on the Riviera.</p>
+</div>
+</article>
 
-    <article class="place">
-      <div class="place-image"
-        style="background-image:url('https://commons.wikimedia.org/wiki/Special:FilePath/Monaco%20Casino%20de%20Monte-Carlo%20%2854478858162%29.jpg');">
-      </div>
-      <div class="place-overlay"></div>
-      <div class="place-content">
-        <div class="place-number">16</div>
-        <h3>Casino de Monte-Carlo</h3>
-        <p>
-          Belle Époque architecture and one of the most recognisable
-          interiors on the Riviera.
-        </p>
-      </div>
-    </article>
+<article class="place">
+<div class="place-image"
+style="background-image:url('https://commons.wikimedia.org/wiki/Special:FilePath/Interieur%20van%20de%20operazaal%20%28Salle%20Garnier%29%20van%20het%20Monte%20Carlo%20Casino%2C%20RP-F-F01000-AI.jpg');"></div>
+<div class="place-overlay"></div>
+<div class="place-content">
+<div class="place-number">29</div>
+<h3>Salle Garnier</h3>
+<p>The intimate opera house of Monte-Carlo, built in the same architectural spirit as the Casino.</p>
+</div>
+</article>
 
+<article class="place">
+<div class="place-image"
+style="background-image:url('https://commons.wikimedia.org/wiki/Special:FilePath/H%C3%B4tel%20de%20Paris%20Monte-Carlo.jpg');"></div>
+<div class="place-overlay"></div>
+<div class="place-content">
+<div class="place-number">30</div>
+<h3>Hôtel de Paris & Place du Casino</h3>
+<p>One of Monaco's most iconic architectural ensembles — worth seeing even if you simply walk through the square.</p>
+</div>
+</article>
 
-    <article class="place">
-      <div class="place-image"
-        style="background-image:url('https://commons.wikimedia.org/wiki/Special:FilePath/Interieur%20van%20de%20operazaal%20%28Salle%20Garnier%29%20van%20het%20Monte%20Carlo%20Casino%2C%20RP-F-F01000-AI.jpg');">
-      </div>
-      <div class="place-overlay"></div>
-      <div class="place-content">
-        <div class="place-number">17</div>
-        <h3>Salle Garnier</h3>
-        <p>
-          The intimate opera house of Monte-Carlo, built in the
-          same architectural spirit as the Casino.
-        </p>
-      </div>
-    </article>
+<article class="place">
+<div class="place-image"
+style="background-image:url('https://commons.wikimedia.org/wiki/Special:FilePath/Villa%20Paloma%20Monaco.jpg');"></div>
+<div class="place-overlay"></div>
+<div class="place-content">
+<div class="place-number">31</div>
+<h3>Villa Paloma</h3>
+<p>Contemporary art inside one of Monaco's elegant historic villas.</p>
+</div>
+</article>
 
+<article class="place">
+<div class="place-image"
+style="background-image:url('https://commons.wikimedia.org/wiki/Special:FilePath/Villa%20Sauber%20-%20panoramio.jpg');"></div>
+<div class="place-overlay"></div>
+<div class="place-content">
+<div class="place-number">32</div>
+<h3>Villa Sauber</h3>
+<p>The Belle Époque home of the Nouveau Musée National de Monaco.</p>
+</div>
+</article>
 
-    <article class="place">
-      <div class="place-image"
-        style="background-image:url('https://commons.wikimedia.org/wiki/Special:FilePath/Villa%20Paloma%20Monaco.jpg');">
-      </div>
-      <div class="place-overlay"></div>
-      <div class="place-content">
-        <div class="place-number">18</div>
-        <h3>Villa Paloma</h3>
-        <p>
-          Contemporary art in one of Monaco's elegant historic villas.
-        </p>
-      </div>
-    </article>
+<article class="place">
+<div class="place-image"
+style="background-image:url('https://commons.wikimedia.org/wiki/Special:FilePath/Forum%20Grimaldi%20Monaco.jpg');"></div>
+<div class="place-overlay"></div>
+<div class="place-content">
+<div class="place-number">33</div>
+<h3>Grimaldi Forum</h3>
+<p>Monaco's contemporary cultural centre for exhibitions, performances and major events.</p>
+</div>
+</article>
 
+<article class="place">
+<div class="place-image"
+style="background-image:url('https://commons.wikimedia.org/wiki/Special:FilePath/Monaco%20Top%20Cars%20Collection.jpg');"></div>
+<div class="place-overlay"></div>
+<div class="place-content">
+<div class="place-number">34</div>
+<h3>Prince's Car Collection</h3>
+<p>A fascinating collection for anyone interested in automotive history and Monaco's royal heritage.</p>
+</div>
+</article>
 
-    <article class="place">
-      <div class="place-image"
-        style="background-image:url('https://commons.wikimedia.org/wiki/Special:FilePath/Villa%20Sauber%20-%20panoramio.jpg');">
-      </div>
-      <div class="place-overlay"></div>
-      <div class="place-content">
-        <div class="place-number">19</div>
-        <h3>Villa Sauber</h3>
-        <p>
-          The Belle Époque home of the Nouveau Musée National de Monaco.
-        </p>
-      </div>
-    </article>
+<article class="place">
+<div class="place-image"
+style="background-image:url('https://commons.wikimedia.org/wiki/Special:FilePath/Chapelle%20de%20la%20Visitation%20Monaco.jpg');"></div>
+<div class="place-overlay"></div>
+<div class="place-content">
+<div class="place-number">35</div>
+<h3>Chapelle de la Visitation</h3>
+<p>A small historic space on the Rock with an unexpectedly intimate atmosphere.</p>
+</div>
+</article>
 
+<article class="place">
+<div class="place-image"
+style="background-image:url('https://commons.wikimedia.org/wiki/Special:FilePath/Auditorium%20Rainier%20III%20Monaco.jpg');"></div>
+<div class="place-overlay"></div>
+<div class="place-content">
+<div class="place-number">36</div>
+<h3>Auditorium Rainier III</h3>
+<p>A quieter cultural landmark for concerts and performances.</p>
+</div>
+</article>
 
-    <article class="place">
-      <div class="place-image"
-        style="background-image:url('https://commons.wikimedia.org/wiki/Special:FilePath/Forum%20Grimaldi%20Monaco.jpg');">
-      </div>
-      <div class="place-overlay"></div>
-      <div class="place-content">
-        <div class="place-number">20</div>
-        <h3>Grimaldi Forum</h3>
-        <p>
-          Monaco's contemporary cultural centre for exhibitions,
-          performances and major events.
-        </p>
-      </div>
-    </article>
-
-
-    <article class="place">
-      <div class="place-image"
-        style="background-image:url('https://commons.wikimedia.org/wiki/Special:FilePath/Monaco%20Top%20Cars%20Collection.jpg');">
-      </div>
-      <div class="place-overlay"></div>
-      <div class="place-content">
-        <div class="place-number">21</div>
-        <h3>Prince's Car Collection</h3>
-        <p>
-          A fascinating collection for anyone interested in
-          automotive history and Monaco's royal heritage.
-        </p>
-      </div>
-    </article>
-
-  </div>
-
-</section>
-
-
-<!-- 05 SECRET -->
-
-<section class="section">
-
-  <div class="section-header">
-    <h2 class="section-title">The Little Discoveries</h2>
-    <div class="section-number">05</div>
-  </div>
-
-
-  <div class="grid three">
-
-    <article class="place">
-      <div class="place-image"
-        style="background-image:url('https://commons.wikimedia.org/wiki/Special:FilePath/Monaco%20La%20T%C3%AAte%20de%20Chien%201.jpg');">
-      </div>
-      <div class="place-overlay"></div>
-      <div class="place-content">
-        <div class="place-number">22 · Viewpoint</div>
-        <h3>Tête de Chien</h3>
-        <p>
-          High above Monaco, with one of the Riviera's most
-          extraordinary views back towards the Principality.
-        </p>
-      </div>
-    </article>
-
-
-    <article class="place">
-      <div class="place-image"
-        style="background-image:url('https://commons.wikimedia.org/wiki/Special:FilePath/Monaco%20La%20T%C3%AAte%20de%20Chien%202.jpg');">
-      </div>
-      <div class="place-overlay"></div>
-      <div class="place-content">
-        <div class="place-number">23 · Walk</div>
-        <h3>Chemin des Révoires</h3>
-        <p>
-          A quieter climb through Monaco's upper neighbourhoods,
-          with beautiful views appearing between the buildings.
-        </p>
-      </div>
-    </article>
-
-
-    <article class="place">
-      <div class="place-image"
-        style="background-image:url('https://commons.wikimedia.org/wiki/Special:FilePath/Monaco%20-%20panoramio%20%28126%29.jpg');">
-      </div>
-      <div class="place-overlay"></div>
-      <div class="place-content">
-        <div class="place-number">24 · Evening</div>
-        <h3>Le Rocher at Sunset</h3>
-        <p>
-          Forget the itinerary. Walk towards the western edge of
-          the Rock and watch the city change colour.
-        </p>
-      </div>
-    </article>
-
-
-    <article class="place">
-      <div class="place-image"
-        style="background-image:url('https://commons.wikimedia.org/wiki/Special:FilePath/Port%20of%20Fontvieille%20from%20the%20exotic%20garden%20of%20Monaco.jpg');">
-      </div>
-      <div class="place-overlay"></div>
-      <div class="place-content">
-        <div class="place-number">25</div>
-        <h3>Fontvieille Sculpture Trail</h3>
-        <p>
-          A quieter side of Monaco with gardens, sculpture and
-          plenty of space to simply wander.
-        </p>
-      </div>
-    </article>
-
-
-    <article class="place">
-      <div class="place-image"
-        style="background-image:url('https://commons.wikimedia.org/wiki/Special:FilePath/Le%20front%20de%20mer%20%C3%A0%20Monaco%20%28proche%20port%20Hercule%29%20en%20novembre%202021.jpg');">
-      </div>
-      <div class="place-overlay"></div>
-      <div class="place-content">
-        <div class="place-number">26</div>
-        <h3>Public Lifts of Monaco</h3>
-        <p>
-          One of the city's best-kept practical secrets.
-          Use the lifts to move vertically through Monaco
-          and discover different neighbourhoods.
-        </p>
-      </div>
-    </article>
-
-
-    <article class="place">
-      <div class="place-image"
-        style="background-image:url('https://commons.wikimedia.org/wiki/Special:FilePath/Larvotto%20Monaco%20IMG%201127.jpg');">
-      </div>
-      <div class="place-overlay"></div>
-      <div class="place-content">
-        <div class="place-number">27</div>
-        <h3>Larvotto at Dawn</h3>
-        <p>
-          Before the beach becomes busy, the promenade is calm,
-          quiet and almost cinematic.
-        </p>
-      </div>
-    </article>
-
-  </div>
+</div>
 
 </section>
 
 
-<!-- BEYOND -->
+<!-- ===================================================== -->
+<!-- 05 LITTLE DISCOVERIES -->
+<!-- ===================================================== -->
+
+<section class="section" id="discoveries">
+
+<div class="section-header">
+<h2 class="section-title">The Little Discoveries</h2>
+<div class="section-number">05</div>
+</div>
+
+<div class="grid three">
+
+<article class="place">
+<div class="place-image"
+style="background-image:url('https://commons.wikimedia.org/wiki/Special:FilePath/Monaco%20La%20T%C3%AAte%20de%20Chien%201.jpg');"></div>
+<div class="place-overlay"></div>
+<div class="place-content">
+<div class="place-number">37 · Viewpoint</div>
+<h3>Tête de Chien</h3>
+<p>High above Monaco, with one of the Riviera's most extraordinary views back towards the Principality.</p>
+</div>
+</article>
+
+<article class="place">
+<div class="place-image"
+style="background-image:url('https://commons.wikimedia.org/wiki/Special:FilePath/Chemin%20des%20R%C3%A9voires%20Monaco.jpg');"></div>
+<div class="place-overlay"></div>
+<div class="place-content">
+<div class="place-number">38 · Walk</div>
+<h3>Chemin des Révoires</h3>
+<p>A quieter climb through Monaco's upper neighbourhoods, with views appearing between the buildings.</p>
+</div>
+</article>
+
+<article class="place">
+<div class="place-image"
+style="background-image:url('https://commons.wikimedia.org/wiki/Special:FilePath/Monaco%20sunset%20Le%20Rocher.jpg');"></div>
+<div class="place-overlay"></div>
+<div class="place-content">
+<div class="place-number">39 · Evening</div>
+<h3>Le Rocher at Sunset</h3>
+<p>Walk towards the western edge of the Rock and watch the city change colour.</p>
+</div>
+</article>
+
+<article class="place">
+<div class="place-image"
+style="background-image:url('https://commons.wikimedia.org/wiki/Special:FilePath/Port%20of%20Fontvieille%20from%20the%20exotic%20garden%20of%20Monaco.jpg');"></div>
+<div class="place-overlay"></div>
+<div class="place-content">
+<div class="place-number">40</div>
+<h3>Fontvieille Sculpture Trail</h3>
+<p>A quieter side of Monaco with gardens, sculpture and plenty of space to wander.</p>
+</div>
+</article>
+
+<article class="place">
+<div class="place-image"
+style="background-image:url('https://commons.wikimedia.org/wiki/Special:FilePath/Monaco%20public%20lift.jpg');"></div>
+<div class="place-overlay"></div>
+<div class="place-content">
+<div class="place-number">41</div>
+<h3>Public Lifts of Monaco</h3>
+<p>One of the city's best-kept practical secrets. Use the lifts to move vertically through Monaco.</p>
+</div>
+</article>
+
+<article class="place">
+<div class="place-image"
+style="background-image:url('https://commons.wikimedia.org/wiki/Special:FilePath/Larvotto%20Monaco%20IMG%201127.jpg');"></div>
+<div class="place-overlay"></div>
+<div class="place-content">
+<div class="place-number">42</div>
+<h3>Larvotto at Dawn</h3>
+<p>Before the beach becomes busy, the promenade is calm, quiet and almost cinematic.</p>
+</div>
+</article>
+
+<article class="place">
+<div class="place-image"
+style="background-image:url('https://commons.wikimedia.org/wiki/Special:FilePath/La%20Petite%20Afrique%20Monaco.jpg');"></div>
+<div class="place-overlay"></div>
+<div class="place-content">
+<div class="place-number">43</div>
+<h3>La Petite Afrique</h3>
+<p>A small green pocket beside the Casino that is surprisingly easy to miss.</p>
+</div>
+</article>
+
+<article class="place">
+<div class="place-image"
+style="background-image:url('https://commons.wikimedia.org/wiki/Special:FilePath/Japanese%20garden%20Monaco%20at%20dusk.jpg');"></div>
+<div class="place-overlay"></div>
+<div class="place-content">
+<div class="place-number">44</div>
+<h3>Japanese Garden at Dusk</h3>
+<p>Return later in the day when the garden becomes quieter and the light softens.</p>
+</div>
+</article>
+
+<article class="place">
+<div class="place-image"
+style="background-image:url('https://commons.wikimedia.org/wiki/Special:FilePath/Monaco%20view%20from%20Fontvieille.jpg');"></div>
+<div class="place-overlay"></div>
+<div class="place-content">
+<div class="place-number">45</div>
+<h3>Fontvieille Viewpoints</h3>
+<p>Look back towards the Rock from the western side of Monaco for a different perspective.</p>
+</div>
+</article>
+
+</div>
+
+<div class="note">
+<div class="note-label">The Monaco trick</div>
+<p>Don't be afraid of the lifts. Monaco is vertical, and some of the best little discoveries are hidden between its different levels.</p>
+</div>
+
+</section>
+
+
+<!-- ===================================================== -->
+<!-- 06 BEYOND MONACO -->
+<!-- ===================================================== -->
 
 <section class="section" id="beyond">
 
-  <div class="section-header">
-    <h2 class="section-title">Beyond Monaco</h2>
-    <div class="section-number">06</div>
-  </div>
+<div class="section-header">
+<h2 class="section-title">Beyond Monaco</h2>
+<div class="section-number">06</div>
+</div>
 
-  <p style="max-width:650px; line-height:1.8; color:var(--muted); margin-bottom:45px;">
-    When you have explored the Principality, the Riviera begins immediately.
-    These are the places we would choose for a half-day escape.
-  </p>
+<p style="max-width:650px;line-height:1.8;color:var(--muted);margin-bottom:45px;">
+When you have explored the Principality, the Riviera begins immediately.
+These are the places we would choose for a half-day escape.
+</p>
 
+<div class="daytrip">
 
-  <div class="daytrip">
+<article class="daytrip-item">
+<span>10 minutes</span>
+<h3>Cap d'Ail</h3>
+<p>A beautiful coastal village directly beside Monaco. Follow the waterfront and discover the dramatic coastline.</p>
+</article>
 
-    <article class="daytrip-item">
-      <span>10 minutes</span>
-      <h3>Cap d'Ail</h3>
-      <p>
-        A beautiful coastal village directly beside Monaco.
-        Follow the waterfront and discover the dramatic coastline.
-      </p>
-    </article>
+<article class="daytrip-item">
+<span>10 minutes</span>
+<h3>Plage Mala</h3>
+<p>A spectacular little cove beneath the cliffs of Cap d'Ail.</p>
+</article>
 
+<article class="daytrip-item">
+<span>15 minutes</span>
+<h3>Roquebrune-Cap-Martin</h3>
+<p>Medieval streets, sea views and a completely different atmosphere just east of Monaco.</p>
+</article>
 
-    <article class="daytrip-item">
-      <span>10 minutes</span>
-      <h3>Plage Mala</h3>
-      <p>
-        A spectacular little cove beneath the cliffs of Cap d'Ail.
-      </p>
-    </article>
+<article class="daytrip-item">
+<span>15 minutes</span>
+<h3>Beaulieu-sur-Mer</h3>
+<p>Elegant Riviera architecture, palms and beautiful waterfront walks.</p>
+</article>
 
+<article class="daytrip-item">
+<span>20 minutes</span>
+<h3>Saint-Jean-Cap-Ferrat</h3>
+<p>One of the most beautiful peninsulas on the Côte d'Azur, especially for a slow afternoon by the sea.</p>
+</article>
 
-    <article class="daytrip-item">
-      <span>15 minutes</span>
-      <h3>Roquebrune-Cap-Martin</h3>
-      <p>
-        Medieval streets, sea views and a completely different
-        atmosphere just east of Monaco.
-      </p>
-    </article>
+<article class="daytrip-item">
+<span>20 minutes</span>
+<h3>Villefranche-sur-Mer</h3>
+<p>A postcard-perfect bay with colourful façades and a wonderful waterfront promenade.</p>
+</article>
 
+<article class="daytrip-item">
+<span>25 minutes</span>
+<h3>Èze Village</h3>
+<p>Medieval stone streets perched high above the Mediterranean.</p>
+</article>
 
-    <article class="daytrip-item">
-      <span>15 minutes</span>
-      <h3>Beaulieu-sur-Mer</h3>
-      <p>
-        Elegant Riviera architecture, palms and beautiful waterfront walks.
-      </p>
-    </article>
+<article class="daytrip-item">
+<span>25 minutes</span>
+<h3>Èze-sur-Mer</h3>
+<p>Leave the village above and head down towards the sea for a completely different side of Èze.</p>
+</article>
 
+<article class="daytrip-item">
+<span>30 minutes</span>
+<h3>Menton</h3>
+<p>Pastel façades, gardens and a distinctly Italian feeling at the eastern edge of the Riviera.</p>
+</article>
 
-    <article class="daytrip-item">
-      <span>20 minutes</span>
-      <h3>Saint-Jean-Cap-Ferrat</h3>
-      <p>
-        One of the most beautiful peninsulas on the Côte d'Azur,
-        especially for a slow afternoon by the sea.
-      </p>
-    </article>
+<article class="daytrip-item">
+<span>30 minutes</span>
+<h3>Nice</h3>
+<p>The Promenade des Anglais, Old Town and extraordinary views from Castle Hill.</p>
+</article>
 
-
-    <article class="daytrip-item">
-      <span>20 minutes</span>
-      <h3>Villefranche-sur-Mer</h3>
-      <p>
-        A postcard-perfect bay with colourful façades and
-        a wonderful waterfront promenade.
-      </p>
-    </article>
-
-
-    <article class="daytrip-item">
-      <span>25 minutes</span>
-      <h3>Èze Village</h3>
-      <p>
-        Medieval stone streets perched high above the Mediterranean.
-      </p>
-    </article>
-
-
-    <article class="daytrip-item">
-      <span>30 minutes</span>
-      <h3>Menton</h3>
-      <p>
-        Pastel façades, gardens and a distinctly Italian feeling
-        at the eastern edge of the Riviera.
-      </p>
-    </article>
-
-
-    <article class="daytrip-item">
-      <span>30 minutes</span>
-      <h3>Nice</h3>
-      <p>
-        The Promenade des Anglais, Old Town and the extraordinary
-        views from Castle Hill.
-      </p>
-    </article>
-
-  </div>
+</div>
 
 </section>
 
@@ -1267,13 +1307,13 @@ footer {
 
 <section class="quote">
 
-  <p>
-    “The best way to discover Monaco is to stop looking for Monaco.”
-  </p>
+<p>
+“The best way to discover Monaco is to stop looking for Monaco.”
+</p>
 
-  <span>
-    The Monaco Stays Edit
-  </span>
+<span>
+The Monaco Stays Edit
+</span>
 
 </section>
 
@@ -1282,35 +1322,34 @@ footer {
 
 <section class="concierge">
 
-  <div>
+<div>
 
-    <div class="eyebrow">
-      Need a little help?
-    </div>
+<div class="eyebrow">
+Need a little help?
+</div>
 
-    <h2>
-      Ask your
-      concierge.
-    </h2>
+<h2>
+Ask your
+concierge.
+</h2>
 
-  </div>
+</div>
 
+<div>
 
-  <div>
+<p>
+Looking for somewhere quieter, a particular viewpoint,
+a beautiful walk or something slightly off the beaten path?
+Our concierge team is happy to point you in the right direction.
+</p>
 
-    <p>
-      Looking for somewhere quieter, a particular viewpoint,
-      a beautiful walk or something slightly off the beaten path?
-      Our concierge team is happy to point you in the right direction.
-    </p>
+<div class="contact">
+<a href="tel:+33618706727">
++33 6 18 70 67 27
+</a>
+</div>
 
-    <div class="contact">
-      <a href="tel:+33618706727">
-        +33 6 18 70 67 27
-      </a>
-    </div>
-
-  </div>
+</div>
 
 </section>
 
@@ -1319,13 +1358,13 @@ footer {
 
 <footer>
 
-  <div>
-    Monaco Stays
-  </div>
+<div>
+Monaco Stays
+</div>
 
-  <div>
-    The Monaco Stays Edit · 2026
-  </div>
+<div>
+The Monaco Stays Edit · 2026
+</div>
 
 </footer>
 
